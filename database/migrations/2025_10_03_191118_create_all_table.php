@@ -31,6 +31,7 @@ return new class extends Migration {
             $table->text('alamat')->nullable();
             $table->string('no_hp', 15)->nullable();
             $table->boolean('status')->default(true);
+            $table->text('profile')->nullable();
             $table->timestamps();
         });
 

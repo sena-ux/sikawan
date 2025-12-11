@@ -25,7 +25,7 @@
     </div>
 
     <!-- Scrollable Navigation Area -->
-    <nav class="flex-1 overflow-y-auto mt-0">
+    <nav class="flex-1 overflow-y-auto mt-1">
         <div class="px-4 space-y-2 pb-8">
             @if (auth()->user()->role === 'admin')
                 <a href="{{ route('dashboard') }}"
