@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jurnal Harian - Sistem Presensi</title>
+    <link rel="shortcut icon" href="{{ asset('admin/assets/icons/logo.ico') }}" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -70,13 +71,13 @@
             margin-top: 0.5rem;
         }
     </style>
-    <style>
+    {{-- <style>
         @view-transition {
             navigation: auto;
         }
     </style>
     <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-    <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+    <script src="/_sdk/element_sdk.js" type="text/javascript"></script> --}}
 </head>
 
 <body class="bg-gray-50 min-h-screen"><!-- Header -->
@@ -121,7 +122,8 @@
                     </div>
                 </div><!-- Card Body -->
                 <div class="p-6 sm:p-8">
-                    <form id="registrationForm" class="space-y-5" method="post"><!-- Foto Profil Field (Optional) -->
+                    <form id="registrationForm" class="space-y-5" method="post" enctype="multipart/form-data" action="{{ route('register.post') }}"><!-- Foto Profil Field (Optional) -->
+                        @csrf
                         <div class="fade-in"><label class="flex items-center text-sm font-semibold text-gray-700 mb-2">
                                 <svg class="w-4 h-4 mr-2 text-blue-600" fill="none" stroke="currentColor"
                                     viewbox="0 0 24 24">
@@ -166,8 +168,8 @@
                                     viewbox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg> Nama Lengkap <span class="ml-1 text-red-500">*</span> </label> <input
-                                type="text" id="namaLengkap" name="namaLengkap"
+                                </svg> Nama Lengkap <span class="ml-1 text-red-500">*</span> </label> <input type="text"
+                                id="namaLengkap" name="namaLengkap"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
                                 placeholder="Masukkan nama lengkap Anda" required>
                         </div><!-- Grid for NIK and NIP -->
@@ -297,7 +299,7 @@
     </div>
     <script>
         // Initialize app
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             updateTime();
             setInterval(updateTime, 1000);
         });
@@ -348,7 +350,7 @@
 
                 const reader = new FileReader();
 
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     preview.innerHTML =
                         `<img src="${e.target.result}" alt="Preview" class="w-full h-full object-cover">`;
                     fileName.textContent = `${file.name} (${fileSize} MB)`;
@@ -368,7 +370,7 @@
         }
 
         // Registration form handling
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        /* document.getElementById('registrationForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             // Get form data
@@ -402,7 +404,7 @@
                 </svg>
             `;
             document.getElementById('photoFileName').textContent = '';
-        });
+        }); */
 
         // File upload handler
         function updateFileName(input) {
@@ -426,7 +428,7 @@
         }
     </script>
     <script>
-        (function() {
+        (function () {
             function c() {
                 var b = a.contentDocument || a.contentWindow.document;
                 if (b) {
@@ -449,8 +451,8 @@
                 if ('loading' !== document.readyState) c();
                 else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
                 else {
-                    var e = document.onreadystatechange || function() {};
-                    document.onreadystatechange = function(b) {
+                    var e = document.onreadystatechange || function () { };
+                    document.onreadystatechange = function (b) {
                         e(b);
                         'loading' !== document.readyState && (document.onreadystatechange = e, c())
                     }

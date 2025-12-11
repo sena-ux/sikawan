@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="shortcut icon" href="{{ asset('admin/assets/icons/logo.ico') }}" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- jQuery -->
     <script src="{{ asset('admin/assets/jquery/jquery.min.js') }}"></script>

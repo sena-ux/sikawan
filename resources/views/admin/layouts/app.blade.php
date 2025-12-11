@@ -7,6 +7,7 @@
     <title>@yield('title') - SIKAWAN</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" href="{{ asset('admin/assets/icons/logo.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('admin/assets/DataTables/datatables.min.css') }}">
     <script src="{{ asset('admin/assets/DataTables/datatables.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('admin/assets/sweetalert/package/dist/sweetalert2.min.css') }}">
