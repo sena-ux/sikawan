@@ -9,7 +9,11 @@
         @break
 
         @case('Analis SDM')
-            @include('admin.dashboard.admin')
+            @include('admin.dashboard.sdm')
+        @break
+
+        @case('Kepala Sekolah')
+            @include('admin.dashboard.sdm')
         @break
 
         @case('Pegawai Non-ASN')
