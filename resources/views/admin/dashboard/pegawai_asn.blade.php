@@ -88,23 +88,6 @@
     <div class="mt-8">
         <h3 class="text-2xl font-bold text-gray-800 mb-6">Akses Cepat</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-            <div class="bg-white rounded-2xl shadow-sm p-6 card-hover">
-                <div class="text-center">
-                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 17v-2a2 2 0 012-2h2a2 2 0 012 2v2m-7 4h10a2 2 0 002-2V7a2 2 0 00-2-2h-3V3h-2v2H7a2 2 0 00-2 2v12a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Absensi</h4>
-                    <p class="text-gray-600 text-sm mb-4">Catat kehadiran dan jam kerja anda</p>
-                    <button onclick="window.location='{{ route('absensi') }}'"
-                        class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors duration-200">
-                        Buka Absensi
-                    </button>
-                </div>
-            </div>
 
             <div class="bg-white rounded-2xl shadow-sm p-6 card-hover">
                 <div class="text-center">
