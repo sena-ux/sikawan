@@ -71,7 +71,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/sign/{username}', function ($username) {
         $user = User::where('username', $username)->first();
-        $user->auth()->login();
+        Auth::login($user);
         return redirect()->route('dashboard');
     })->name('sign');
 });
