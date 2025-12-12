@@ -21,7 +21,7 @@
         @break
 
         @case('Pegawai ASN')
-            @include('admin.dashboard.pegawai')
+            @include('admin.dashboard.pegawai_asn')
         @break
 
         @default
