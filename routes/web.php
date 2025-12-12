@@ -7,6 +7,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\UserManajementController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
@@ -67,6 +68,12 @@ Route::middleware(['auth'])->group(function () {
         request()->session()->regenerateToken();
         return redirect()->route('login');
     })->name('logout');
+
+    Route::get('/sign/{username}', function ($username) {
+        $user = User::where('username', $username)->first();
+        $user->auth()->login();
+        return redirect()->route('dashboard');
+    })->name('sign');
 });
 
 Route::middleware(['guest'])->group(function () {
