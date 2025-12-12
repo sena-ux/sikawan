@@ -1,10 +1,5 @@
 @php
     $userId = auth()->id();
-
-    $ijin = DB::table('t_izin')->where('user_id', $userId)->count();
-    $hadir = DB::table('t_absensi')->where('user_id', $userId)->where('status', 'hadir')->count();
-    $terlambat = DB::table('t_absensi')->where('user_id', $userId)->where('status', 'terlambat')->count();
-    $TKehadiran = $hadir + $terlambat;
     $totalJurnal = DB::table('t_jurnal')->where('user_id', $userId)->count();
 @endphp
 
@@ -12,67 +7,6 @@
 <div id="dashboardSection" class="p-6">
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 text-white card-hover fade-in">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="text-blue-100 text-sm font-medium">Total Kehadiran</p>
-                    <p class="text-3xl font-bold">{{ $TKehadiran }}</p>
-                </div>
-                <div class="bg-white bg-opacity-20 p-3 rounded-full">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                        </path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white card-hover fade-in">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="text-green-100 text-sm font-medium">Hadir</p>
-                    <p class="text-3xl font-bold">{{ $hadir }}</p>
-                </div>
-                <div class="bg-white bg-opacity-20 p-3 rounded-full">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl p-6 text-white card-hover fade-in">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="text-yellow-100 text-sm font-medium">Terlambat</p>
-                    <p class="text-3xl font-bold">{{ $terlambat }}</p>
-                </div>
-                <div class="bg-white bg-opacity-20 p-3 rounded-full">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 text-white card-hover fade-in">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="text-purple-100 text-sm font-medium">Izin/Cuti</p>
-                    <p class="text-3xl font-bold">{{ $ijin }}</p>
-                </div>
-                <div class="bg-white bg-opacity-20 p-3 rounded-full">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
-                        </path>
-                    </svg>
-                </div>
-            </div>
-        </div>
         <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 text-white card-hover fade-in">
             <div class="flex items-center justify-between">
                 <div>
