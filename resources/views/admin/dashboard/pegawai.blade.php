@@ -142,25 +142,44 @@
     </div> --}}
 
     <!-- Action Buttons Section -->
-    <hr>
     <div class="mt-8">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto w-full">
-            <a href="{{ route('absensi') }}"
-               class="flex items-center justify-center gap-3 w-full py-4 rounded-xl text-white text-lg font-semibold shadow-lg bg-gradient-to-br from-green-400 via-green-300 to-green-500 hover:from-green-500 hover:to-green-400 transition-all duration-200">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M9 17v-2a2 2 0 012-2h2a2 2 0 012 2v2m-7 4h10a2 2 0 002-2V7a2 2 0 00-2-2h-3V3h-2v2H7a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                Absensi
-            </a>
-            <a href="{{ route('main.jurnal') }}"
-               class="flex items-center justify-center gap-3 w-full py-4 rounded-xl text-white text-lg font-semibold shadow-lg bg-gradient-to-br from-purple-400 via-pink-300 to-purple-500 hover:from-purple-500 hover:to-pink-400 transition-all duration-200">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
-                </svg>
-                Jurnal Harian
-            </a>
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">Akses Cepat</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+            <div class="bg-white rounded-2xl shadow-sm p-6 card-hover">
+                <div class="text-center">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 17v-2a2 2 0 012-2h2a2 2 0 012 2v2m-7 4h10a2 2 0 002-2V7a2 2 0 00-2-2h-3V3h-2v2H7a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Absensi</h4>
+                    <p class="text-gray-600 text-sm mb-4">Catat kehadiran dan jam kerja anda</p>
+                    <button onclick="window.location='{{ route('absensi') }}'"
+                        class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors duration-200">
+                        Buka Absensi
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm p-6 card-hover">
+                <div class="text-center">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Jurnal Harian</h4>
+                    <p class="text-gray-600 text-sm mb-4">Buat laporan kegiatan harian anda</p>
+                    <button onclick="window.location='{{ route('main.jurnal') }}'"
+                        class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors duration-200">
+                        Isi Jurnal
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
