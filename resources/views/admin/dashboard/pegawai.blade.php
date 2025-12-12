@@ -97,11 +97,14 @@
             </div>
             <div class="card-body">
                 <div class="bg-white rounded-xl shadow-sm p-6">
-                    <form id="leaveForm" class="space-y-4" enctype="multipart/form-data" method="post" action="{{ route('simpan.jurnal') }}">
+                    <form id="leaveForm" class="space-y-4" enctype="multipart/form-data" method="post"
+                        action="{{ route('simpan.jurnal') }}">
                         @csrf
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Hari</label>
-                            <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" name="hari" id="hari">
+                            <select
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                                name="hari" id="hari">
                                 <option value="">-- Pilih Hari --</option>
                                 <option value="senin">Senin</option>
                                 <option value="selasa">Selasa</option>
@@ -115,20 +118,26 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
                             <input type="date"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" name="tanggal">
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                                name="tanggal">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Kegiatan</label>
-                            <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Masukan kegiatan anda" name="kegiatan">
+                            <input type="text"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                                placeholder="Masukan kegiatan anda" name="kegiatan">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Deskripsi</label>
-                            <textarea class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" rows="3"
-                                placeholder="Detail pekerjaan yang di ambil ..." name="deskripsi"></textarea>
+                            <textarea
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                                rows="3" placeholder="Detail pekerjaan yang di ambil ..." name="deskripsi"></textarea>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Foto Dokumentasi</label>
-                            <input class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" type="file" name="foto" id="foto">
+                            <input
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                                type="file" name="foto" id="foto">
                             <small>*Opsional</small>
                         </div>
                         <button type="submit"
@@ -145,23 +154,25 @@
     <div class="mt-8">
         <h3 class="text-2xl font-bold text-gray-800 mb-6">Akses Cepat</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-            <div class="bg-white rounded-2xl shadow-sm p-6 card-hover">
-                <div class="text-center">
-                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 17v-2a2 2 0 012-2h2a2 2 0 012 2v2m-7 4h10a2 2 0 002-2V7a2 2 0 00-2-2h-3V3h-2v2H7a2 2 0 00-2 2v12a2 2 0 002 2z">
-                            </path>
-                        </svg>
+            @if (auth()->user()->role === 'Pegawai Non-ASN')
+                <div class="bg-white rounded-2xl shadow-sm p-6 card-hover">
+                    <div class="text-center">
+                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 17v-2a2 2 0 012-2h2a2 2 0 012 2v2m-7 4h10a2 2 0 002-2V7a2 2 0 00-2-2h-3V3h-2v2H7a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Absensi</h4>
+                        <p class="text-gray-600 text-sm mb-4">Catat kehadiran dan jam kerja anda</p>
+                        <button onclick="window.location='{{ route('absensi') }}'"
+                            class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors duration-200">
+                            Buka Absensi
+                        </button>
                     </div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Absensi</h4>
-                    <p class="text-gray-600 text-sm mb-4">Catat kehadiran dan jam kerja anda</p>
-                    <button onclick="window.location='{{ route('absensi') }}'"
-                        class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors duration-200">
-                        Buka Absensi
-                    </button>
                 </div>
-            </div>
+            @endif
 
             <div class="bg-white rounded-2xl shadow-sm p-6 card-hover">
                 <div class="text-center">
