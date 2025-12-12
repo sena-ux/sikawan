@@ -123,26 +123,6 @@
                     Dashboard
                 </a>
 
-                <a href="{{ route('pegawai') }}"
-                    class="sidebar-menu flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors duration-200 {{ Request::segment(1) === 'pegawai' ? 'sidebar-active' : '' }}">
-                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z">
-                        </path>
-                    </svg>
-                    Kelola Pegawai
-                </a>
-
-                <a href="{{ route('user.management') }}"
-                    class="sidebar-menu flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors duration-200 {{ Request::segment(1) === 'user-management' ? 'sidebar-active' : '' }}">
-                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z">
-                        </path>
-                    </svg>
-                    User Management
-                </a>
-
                 <a href="{{ route('absensi.izin.request') }}"
                     class="sidebar-menu flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors duration-200 {{ Request::segment(1) === 'absensi' && Request::segment(3) === 'request' ? 'sidebar-active' : '' }}">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
