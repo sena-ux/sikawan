@@ -106,7 +106,10 @@
                     <label class="block text-sm font-medium text-gray-700 mb-2">Role</label>
                     <select name="role" id="editRoleSelect" class="w-full px-3 py-2 border rounded-lg">
                         <option value="admin">Admin</option>
-                        <option value="pegawai">Pegawai</option>
+                        <option value="Pegawai Non-ASN">Pegawai Non-ASN</option>
+                        <option value="Pegawai ASN">Pegawai ASN</option>
+                        <option value="Analis SDM">Analis SDM</option>
+                        <option value="Kepala Sekolah">Kepala Sekolah</option>
                         <option value="superadmin">Superadmin</option>
                     </select>
                 </div>

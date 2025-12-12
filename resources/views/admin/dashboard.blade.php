@@ -8,11 +8,15 @@
             @include('admin.dashboard.admin')
         @break
 
-        @case('sdm')
-            @include('admin.dashboard.sdm')
+        @case('Analis SDM')
+            @include('admin.dashboard.admin')
         @break
 
-        @case('pegawai')
+        @case('Pegawai Non-ASN')
+            @include('admin.dashboard.pegawai')
+        @break
+
+        @case('Pegawai ASN')
             @include('admin.dashboard.pegawai')
         @break
 

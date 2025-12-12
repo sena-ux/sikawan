@@ -15,11 +15,21 @@
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <div class="flex items-center space-x-2 lg:space-x-4 w-full">
+                        <div class="flex items-center justify-between space-x-2 lg:space-x-4 w-full">
                             <div class="text-left hidden md:block">
                                 <h2 class="text-2xl font-bold text-white drop-shadow">Data Jurnal Harian Pegawai</h2>
                                 <p class="text-purple-100 text-sm mt-1">Manajemen Data Jurnal Harian Pegawai</p>
                             </div>
+
+                            <!-- <a href="{{ route('main.jurnal') }}" -->
+                            <a href="{{ route('main.jurnal') }}"
+                                class="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-purple-600 hover:to-pink-500 text-white font-semibold px-5 py-3 rounded-xl shadow-lg hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4" />
+                                </svg>
+                                Tambah Jurnal
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -27,12 +37,14 @@
                 <div class="p-6">
                     <form id="filterAbsensiForm" class="flex flex-col md:flex-row gap-4 mb-6 items-end">
                         <div>
-                            <label for="tanggalAwal" class="block text-sm font-medium text-gray-700 mb-1">Tanggal Awal</label>
+                            <label for="tanggalAwal" class="block text-sm font-medium text-gray-700 mb-1">Tanggal
+                                Awal</label>
                             <input type="date" id="tanggalAwal" name="tanggal_awal"
                                 class="px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent">
                         </div>
                         <div>
-                            <label for="tanggalAkhir" class="block text-sm font-medium text-gray-700 mb-1">Tanggal Akhir</label>
+                            <label for="tanggalAkhir" class="block text-sm font-medium text-gray-700 mb-1">Tanggal
+                                Akhir</label>
                             <input type="date" id="tanggalAkhir" name="tanggal_akhir"
                                 class="px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent">
                         </div>
@@ -46,7 +58,8 @@
                         <button type="button" id="refreshTableBtn"
                             class="bg-blue-500 text-white px-6 py-2 rounded-xl font-semibold shadow-md hover:bg-blue-700 transition flex items-center space-x-2 hidden">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582M20 20v-5h-.581M5 19a9 9 0 0014-14" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 4v5h.582M20 20v-5h-.581M5 19a9 9 0 0014-14" />
                             </svg>
                             <span>Refresh</span>
                         </button>
@@ -80,7 +93,7 @@
     @push('js')
         <script>
             var table;
-            $(document).ready(function () {
+            $(document).ready(function() {
                 // Hide table and refresh button on load
                 $('#absensiDataTable').addClass('hidden');
                 $('#refreshTableBtn').addClass('hidden');
@@ -100,54 +113,102 @@
                                 url: "https://cdn.datatables.net/plug-ins/1.13.7/i18n/id.json"
                             },
                             dom: 'Bfrtip',
-                            buttons: [
-                                { extend: 'copy', text: 'Copy' },
-                                { extend: 'csv', text: 'CSV' },
+                            buttons: [{
+                                    extend: 'copy',
+                                    text: 'Copy'
+                                },
+                                {
+                                    extend: 'csv',
+                                    text: 'CSV'
+                                },
                                 {
                                     extend: 'excel',
                                     text: 'Excel',
-                                    customize: function (xlsx) {
+                                    customize: function(xlsx) {
                                         var sheet = xlsx.xl.worksheets['sheet1.xml'];
-                                        $('row c', sheet).attr('s', '25'); // style 25: border all
+                                        $('row c', sheet).attr('s',
+                                        '25'); // style 25: border all
                                     }
                                 },
                                 {
                                     extend: 'pdf',
                                     text: 'PDF',
-                                    customize: function (doc) {
+                                    customize: function(doc) {
                                         var objLayout = {};
-                                        objLayout['hLineWidth'] = function(i) { return 0.5; };
-                                        objLayout['vLineWidth'] = function(i) { return 0.5; };
-                                        objLayout['hLineColor'] = function(i) { return '#aaa'; };
-                                        objLayout['vLineColor'] = function(i) { return '#aaa'; };
-                                        objLayout['paddingLeft'] = function(i) { return 4; };
-                                        objLayout['paddingRight'] = function(i) { return 4; };
+                                        objLayout['hLineWidth'] = function(i) {
+                                            return 0.5;
+                                        };
+                                        objLayout['vLineWidth'] = function(i) {
+                                            return 0.5;
+                                        };
+                                        objLayout['hLineColor'] = function(i) {
+                                            return '#aaa';
+                                        };
+                                        objLayout['vLineColor'] = function(i) {
+                                            return '#aaa';
+                                        };
+                                        objLayout['paddingLeft'] = function(i) {
+                                            return 4;
+                                        };
+                                        objLayout['paddingRight'] = function(i) {
+                                            return 4;
+                                        };
                                         doc.content[1].layout = objLayout;
                                     }
                                 },
-                                { extend: 'print', text: 'Print' },
-                                { extend: 'colvis', text: 'Kolom' }
+                                {
+                                    extend: 'print',
+                                    text: 'Print'
+                                },
+                                {
+                                    extend: 'colvis',
+                                    text: 'Kolom'
+                                }
                             ],
                             ajax: {
                                 url: "{{ route('jurnal.get.data') }}",
-                                data: function (d) {
+                                data: function(d) {
                                     d.tanggal_awal = $('#tanggalAwal').val();
                                     d.tanggal_akhir = $('#tanggalAkhir').val();
                                 }
                             },
-                            columns: [
-                                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                                { data: 'pegawai.nama_lengkap', name: 'pegawai.nama_lengkap' },
-                                { data: 'pegawai.nik', name: 'pegawai.nik' },
-                                { data: 'hariTanggal', name: 'hariTanggal' },
-                                { data: 'kegiatan', name: 'kegiatan' },
-                                { data: 'deskripsi', name: 'deskripsi' },
-                                { data: 'dokumen', name: 'dokumen' },
+                            columns: [{
+                                    data: 'DT_RowIndex',
+                                    name: 'DT_RowIndex',
+                                    orderable: false,
+                                    searchable: false
+                                },
+                                {
+                                    data: 'pegawai.nama_lengkap',
+                                    name: 'pegawai.nama_lengkap'
+                                },
+                                {
+                                    data: 'pegawai.nik',
+                                    name: 'pegawai.nik'
+                                },
+                                {
+                                    data: 'hariTanggal',
+                                    name: 'hariTanggal'
+                                },
+                                {
+                                    data: 'kegiatan',
+                                    name: 'kegiatan'
+                                },
+                                {
+                                    data: 'deskripsi',
+                                    name: 'deskripsi'
+                                },
+                                {
+                                    data: 'dokumen',
+                                    name: 'dokumen'
+                                },
                             ]
                         });
 
-                        setTimeout(function () {
-                            $('.dt-buttons button').addClass('bg-purple-500 hover:bg-purple-700 text-white font-semibold py-2 mb-2 px-4 rounded mx-1 shadow transition-all duration-200');
+                        setTimeout(function() {
+                            $('.dt-buttons button').addClass(
+                                'bg-purple-500 hover:bg-purple-700 text-white font-semibold py-2 mb-2 px-4 rounded mx-1 shadow transition-all duration-200'
+                                );
                             $('.dt-buttons button').removeClass('dt-button');
                         }, 100);
                     } else {

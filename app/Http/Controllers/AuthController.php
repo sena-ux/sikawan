@@ -33,6 +33,7 @@ class AuthController extends Controller
             'nik' => 'required|string|max:30',
             'email' => 'required|string|email|max:255|unique:t_users',
             'nip' => 'nullable|string|max:30',
+            'jenisJabatan' => 'required|string|max:100',
             'jabatan' => 'nullable|string|max:100',
             'alamat' => 'nullable|string',
             'noHp' => 'nullable|string|max:15',
@@ -50,7 +51,7 @@ class AuthController extends Controller
             'username' => $validated['nik'],
             'email' => $validated['email'],
             'password' => bcrypt($validated['nik']),
-            'role' => $validated['jabatan'] ?? 'pegawai',
+            'role' => $validated['jenisJabatan'] ?? 'pegawai',
         ]);
 
         // Handle file upload

@@ -86,7 +86,7 @@
                     <div class="text-right hidden md:block">
                         <p class="text-xs lg:text-sm text-gray-600" id="currentDate">Senin, 15 Januari 2024</p>
                         <p class="text-sm lg:text-lg font-semibold text-gray-800" id="currentTime">08:30:45</p>
-                    </div><button onclick="window.location.href='{{ route('jurnal.data') }}'"
+                    </div><button onclick="window.history.back()"
                         class="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 lg:px-6 lg:py-3 rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
